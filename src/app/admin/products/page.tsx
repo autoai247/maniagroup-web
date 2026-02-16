@@ -178,22 +178,30 @@ export default function ProductsPage() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-          <div className="bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10">
-            <p className="text-sm text-gray-400 mb-1">판매중</p>
-            <p className="text-2xl font-bold">{products.filter(p => p.status === '판매중').length}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+          <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-lg rounded-xl p-4 border border-blue-500/20">
+            <p className="text-sm text-gray-400 mb-1">총 제품 수</p>
+            <p className="text-3xl font-bold">{products.length}개</p>
+            <p className="text-xs text-gray-500 mt-1">판매중: {products.filter(p => p.status === '판매중').length}개</p>
           </div>
-          <div className="bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10">
+          <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 backdrop-blur-lg rounded-xl p-4 border border-green-500/20">
+            <p className="text-sm text-gray-400 mb-1">평균 마진율</p>
+            <p className="text-3xl font-bold text-green-400">
+              {products.length > 0 ? Math.round(products.reduce((sum, p) => sum + (p.marginRate || 0), 0) / products.length) : 0}%
+            </p>
+            <p className="text-xs text-gray-500 mt-1">총 마진: ₩{products.reduce((sum, p) => sum + (p.margin || 0) * (p.stock || 0), 0).toLocaleString()}</p>
+          </div>
+          <div className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-lg rounded-xl p-4 border border-yellow-500/20">
+            <p className="text-sm text-gray-400 mb-1">총 재고 가치</p>
+            <p className="text-3xl font-bold text-yellow-400">
+              ₩{Math.round(products.reduce((sum, p) => sum + (p.supplyPrice || 0) * (p.stock || 0), 0) / 10000)}만
+            </p>
+            <p className="text-xs text-gray-500 mt-1">재고: {products.reduce((sum, p) => sum + (p.stock || 0), 0).toLocaleString()}개</p>
+          </div>
+          <div className="bg-gradient-to-br from-pink-500/10 to-red-500/10 backdrop-blur-lg rounded-xl p-4 border border-pink-500/20">
             <p className="text-sm text-gray-400 mb-1">공구 가능</p>
-            <p className="text-2xl font-bold">{products.filter(p => p.canGroup).length}</p>
-          </div>
-          <div className="bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10">
-            <p className="text-sm text-gray-400 mb-1">카테고리</p>
-            <p className="text-2xl font-bold">{categories.length}</p>
-          </div>
-          <div className="bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10">
-            <p className="text-sm text-gray-400 mb-1">브랜드 수</p>
-            <p className="text-2xl font-bold">{new Set(products.map(p => p.brand)).size}</p>
+            <p className="text-3xl font-bold text-pink-400">{products.filter(p => p.canGroup).length}개</p>
+            <p className="text-xs text-gray-500 mt-1">카테고리: {categories.length}개</p>
           </div>
         </div>
 
@@ -232,10 +240,59 @@ export default function ProductsPage() {
               <p className="text-sm text-blue-400 mb-1 font-semibold">{product.brand}</p>
               <p className="text-xs text-gray-400 mb-3">{product.category}</p>
 
-              {/* Price/Details */}
-              <div className="bg-white/5 rounded-xl p-3 mb-4">
-                <p className="text-xs text-gray-400 mb-1">제품 정보</p>
-                <p className="text-sm font-semibold">{product.price || '상세문의'}</p>
+              {/* Pricing Details */}
+              <div className="space-y-2 mb-4">
+                {/* 가격 정보 */}
+                <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl p-3 border border-blue-500/20">
+                  <div className="grid grid-cols-3 gap-2 text-xs">
+                    <div>
+                      <p className="text-gray-400 mb-1">공급가</p>
+                      <p className="font-bold text-white">₩{product.supplyPrice?.toLocaleString() || '0'}</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-400 mb-1">판매가</p>
+                      <p className="font-bold text-blue-400">₩{product.retailPrice?.toLocaleString() || '0'}</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-400 mb-1">공구가</p>
+                      <p className="font-bold text-green-400">₩{product.groupBuyPrice?.toLocaleString() || '0'}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 수익 정보 */}
+                <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-xl p-3 border border-green-500/20">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs text-gray-400">마진</span>
+                    <span className="text-sm font-bold text-green-400">
+                      ₩{product.margin?.toLocaleString() || '0'} ({product.marginRate || 0}%)
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs text-gray-400">인플루언서</span>
+                    <span className="text-sm font-bold text-yellow-400">
+                      ₩{product.influencerAmount?.toLocaleString() || '0'} ({product.influencerFee || 0}%)
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-gray-400">회사 수익</span>
+                    <span className="text-sm font-bold text-blue-400">
+                      ₩{product.companyProfit?.toLocaleString() || '0'} ({product.companyProfitRate || 0}%)
+                    </span>
+                  </div>
+                </div>
+
+                {/* 재고 정보 */}
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="bg-white/5 rounded-lg p-2">
+                    <p className="text-xs text-gray-400 mb-1">재고</p>
+                    <p className="text-sm font-bold">{product.stock || 0}개</p>
+                  </div>
+                  <div className="bg-white/5 rounded-lg p-2">
+                    <p className="text-xs text-gray-400 mb-1">최소주문</p>
+                    <p className="text-sm font-bold">{product.moq || 0}개</p>
+                  </div>
+                </div>
               </div>
 
               {/* Supplier */}
