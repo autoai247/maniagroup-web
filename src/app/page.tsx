@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import { ArrowRight, Sparkles, Target, Users, Zap } from 'lucide-react';
+import { ArrowRight, Layers, Target, Users, Zap } from 'lucide-react';
 
 export default function HomePage() {
   const stats = [
     { label: '대카테고리', value: '18개', icon: Target },
-    { label: '중카테고리', value: '95+', icon: Sparkles },
+    { label: '중카테고리', value: '95+', icon: Layers },
     { label: '세부항목', value: '280+', icon: Zap },
     { label: '파트너사', value: '50+', icon: Users },
   ];
@@ -68,35 +68,71 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Quick Category Preview */}
+      {/* What We Do - Simple Explanation */}
       <section className="py-20 bg-black/30">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-4">
-            18개 대카테고리로 모든 마케팅을 해결합니다
-          </h2>
-          <p className="text-center text-gray-400 mb-12">
-            퍼포먼스부터 글로벌까지, 완벽한 마케팅 생태계
-          </p>
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6">
+              우리가 하는 일
+            </h2>
+            <p className="text-xl text-gray-300 leading-relaxed">
+              매니아그룹은 <span className="text-blue-400 font-semibold">마케팅이 필요한 모든 기업</span>과<br />
+              <span className="text-purple-400 font-semibold">검증된 실행 파트너</span>를 연결합니다.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {categories.map((category) => (
-              <div key={category.id} className="group relative overflow-hidden bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-white/30 transition-all hover:scale-105">
-                <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 transition-opacity`}></div>
-                <div className="relative">
-                  <div className="text-5xl mb-4">{category.icon}</div>
-                  <h3 className="text-xl font-bold mb-2">{category.name}</h3>
-                  <div className="flex items-center text-sm text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity">
-                    자세히 보기
-                    <ArrowRight className="w-4 h-4 ml-1" />
-                  </div>
-                </div>
+          {/* 3 Step Process */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="text-center">
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-3xl font-bold">
+                1
               </div>
-            ))}
+              <h3 className="text-2xl font-bold mb-3">니즈 파악</h3>
+              <p className="text-gray-400">
+                고객의 마케팅 목표와<br />예산을 정확히 분석합니다
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl font-bold">
+                2
+              </div>
+              <h3 className="text-2xl font-bold mb-3">최적 매칭</h3>
+              <p className="text-gray-400">
+                18개 카테고리에서<br />최적의 솔루션을 제안합니다
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center text-3xl font-bold">
+                3
+              </div>
+              <h3 className="text-2xl font-bold mb-3">성과 관리</h3>
+              <p className="text-gray-400">
+                프로젝트 진행부터<br />결과 분석까지 책임집니다
+              </p>
+            </div>
+          </div>
+
+          {/* Main Categories Preview */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold text-center mb-8">주요 마케팅 분야</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              {categories.map((category) => (
+                <Link key={category.id} href="/services">
+                  <div className="group relative overflow-hidden bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10 hover:border-white/30 transition-all hover:scale-105 text-center">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-20 transition-opacity`}></div>
+                    <div className="relative">
+                      <div className="text-3xl mb-2">{category.icon}</div>
+                      <h4 className="text-sm font-bold leading-tight">{category.name}</h4>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
 
           <div className="text-center">
-            <Link href="/services" className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-lg rounded-xl hover:bg-white/20 transition-all border border-white/20">
-              전체 18개 카테고리 보기
+            <Link href="/services" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl font-semibold text-lg hover:scale-105 transition-all">
+              전체 서비스 자세히 보기
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

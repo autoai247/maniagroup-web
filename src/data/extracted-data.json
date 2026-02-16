@@ -1,0 +1,532 @@
+{
+  "projects": [
+    {
+      "name": "일일 업무보고서",
+      "source": "에이티매니아그룹_일일업무보고_박진수_221031.xlsx",
+      "date": "2022-10-31",
+      "type": "일일 업무",
+      "status": "완료"
+    },
+    {
+      "name": "1. 주요업무",
+      "source": "에이티매니아그룹_일일업무보고_박진수_221031.xlsx",
+      "date": "2022-10-31",
+      "type": "일일 업무",
+      "status": "완료"
+    },
+    {
+      "name": "2. 금일 실시현황",
+      "source": "에이티매니아그룹_일일업무보고_박진수_221031.xlsx",
+      "date": "2022-10-31",
+      "type": "일일 업무",
+      "status": "완료"
+    }
+  ],
+  "clients": [],
+  "products": [
+    {
+      "name": "더웨이브코리아 공구 가능제품 리스트",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "NO",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "카테고리",
+      "price": "브랜드",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "건강식품",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "리얼닥터",
+      "price": "리얼닥터 시크릿 포 우먼 유산균",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "2. 다니스코 특허 14종 개별 유산균 함유",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "3. 혼합 유산균 19종 포함",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "4. 부원료 면역으 위한 아연 포함",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "리얼닥터 콜라겐 화이트닝 플러스",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "1. 저분자 피쉬콜리겐 98.05% 함유 + 팹다이드 함유",
+      "price": 1,
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "2. 17종 혼합 유산균 분말 및 프락토올리고당 함유",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "3. 시너지를 위한 비타민 4종 및 비오틴 함유",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "뷰티",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "아이버니",
+      "price": "아이버니 테이핑 압박밴드\r\n사이즈 (M / L / XL)\r\n컬러 (화이트 / 블랙 / 베이지)",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "2. 구리와 라이크라 혼합섬유 사용 (탄성 + 항균 99.9%)",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "3. 부위별 근육을 잡아주는 압박 보조기 특허 기술",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "폴스킨",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "폴스킨 셀페이스 EP 스킨테라피",
+      "price": "1. 시중 뷰티 디바이스 중 단연 압도적인 17배 흡수율!",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "2.중국산 저가형 NO! 금형,기술,제조 모두 안전하게 대한민국 제조!",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "3. 1회 사용 즉시 9가지 피부개선",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "(흡수율 1700%,  각질개선 87.35% / 보습개선 233.47%, 결개선 41.5% / 5종 모공개선)",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "식품",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "그대로 말린",
+      "price": "레몬그대로",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "자몽 그대로",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "2. 엄선한 원물 100%만 사용 (방부제, 첨가물, 보존료 ZERO)",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "라임 그대로",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "3.  껍질째 통재로 갈아 넣은 진짜 과일분말로 영양소 100% 충족가능",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "레몬 슬라이스",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "1. 흔한 착즙 방식이 아닌 독자적인 상온진공건조공법(MVD) 기술력 사용 ",
+      "price": 1,
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "자몽 슬라이스",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "2. 엄선한 원물 100%만 사용 (방부제, 첨가물, 보존료 ZERO)",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "라임 슬라이스",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "3. 통째로 건조한 100% 과일 슬라이스",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "유기농 레몬즙",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "1. NFC 착즙 공법으로 담아낸 진짜 유기농 레몬즙",
+      "price": 1,
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "2. 100% 지중해 스페인산 유기농 레몬만 사용",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "3. 물 한방울도 섞지않은 100% 유기농 레몬즙 (물,설탕,첨가물,향료,색소 ZERO)",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "디어드립",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "디어드립 올인원 셀렉션 12P",
+      "price": "1. 스페셜티 커피협회(SCA)의 상위 5%인 80점 이상의 스페셜티 원두만 사용\r\n2. 간편하게 즐길 수 있는 1포 형태의 드립커피\r\n3. 일정한 맛과 향을 유지할 수 있는 안정적인 원두 공급 및 로스팅\r\n4. HACCP, 로하스 등 다양한 인증의 신뢰성 있는 제품\r\n5. 다양한 원두를 선택할 수 있는 구성",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "디어드립 콜롬비아 알레한드로 7P",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": 1,
+      "price": 1,
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "디어드립 과테말라 에드왈도 7P",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": 1,
+      "price": 1,
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "디어드립 에티오피아 아쉬라프 7P",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": 1,
+      "price": 1,
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "디어드립 코스타리카 티아고 7P",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": 1,
+      "price": 1,
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "디어드립 케냐 자히나 7P",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": 1,
+      "price": 1,
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "디어드립 디카페인 콜롬비아 7P",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": 1,
+      "price": 1,
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "디어드립 브라질 파비오 7P",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": 1,
+      "price": 1,
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "일편닭심",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "직화닭발 (무뼈)",
+      "price": "1. 캡사이신이 들어가지 않은 자체 개발 양념 사용\r\n2. 순한맛 / 매운맛 2종\r\n3. 기존 상품 대비 약 30% 용량 많음",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "국물닭발 (무뼈)",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "350g",
+      "price": "350g",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "불날개",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "350g",
+      "price": "350g",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "제철상회",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "간장게장",
+      "price": "1. 국내산 원물 사용\r\n2. 캔시머 제품으로 위생적\r\n3. 당일 발송 (전일 15:00 마감)\r\n4. HACCP",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "양념게장",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "700kg",
+      "price": "700kg",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "전복장",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "600kg",
+      "price": "600kg",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "새우장",
+      "source": "더웨이브코리아 공구 가능제품 리스트_ 20250709.xlsx",
+      "sheet": "Sheet1",
+      "category": "더웨이브코리아",
+      "description": "600kg",
+      "price": "600kg",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "더매니아 공급 제품 리스트",
+      "source": "더매니아 공급제품리스트_1201.xlsx",
+      "sheet": "Sheet1",
+      "category": "더매니아 직영",
+      "description": "",
+      "price": "",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "No",
+      "source": "더매니아 공급제품리스트_1201.xlsx",
+      "sheet": "Sheet1",
+      "category": "더매니아 직영",
+      "description": "브랜드명",
+      "price": "브랜드명",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "리월 LED 마스크",
+      "source": "더매니아 공급제품리스트_1201.xlsx",
+      "sheet": "Sheet1",
+      "category": "더매니아 직영",
+      "description": "미용용품",
+      "price": "LMF-3000A",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "LMF-2000A",
+      "source": "더매니아 공급제품리스트_1201.xlsx",
+      "sheet": "Sheet1",
+      "category": "더매니아 직영",
+      "description": 398000,
+      "price": 233890,
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "비비립",
+      "source": "더매니아 공급제품리스트_1201.xlsx",
+      "sheet": "Sheet1",
+      "category": "더매니아 직영",
+      "description": "미용용품",
+      "price": "비비립 LED입술마스크 (솔루션 2종 포함)",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "아잉",
+      "source": "더매니아 공급제품리스트_1201.xlsx",
+      "sheet": "Sheet1",
+      "category": "더매니아 직영",
+      "description": "여성용품",
+      "price": "아잉 약산성 버블 이너 클렌저",
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "여성용품",
+      "source": "더매니아 공급제품리스트_1201.xlsx",
+      "sheet": "Sheet1",
+      "category": "더매니아 직영",
+      "description": "아잉 마사지 러블리 젤",
+      "price": 32000,
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "아잉 민트블라썸 리파인 젤",
+      "source": "더매니아 공급제품리스트_1201.xlsx",
+      "sheet": "Sheet1",
+      "category": "더매니아 직영",
+      "description": 22000,
+      "price": 15400,
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "아잉 페미닌 티슈",
+      "source": "더매니아 공급제품리스트_1201.xlsx",
+      "sheet": "Sheet1",
+      "category": "더매니아 직영",
+      "description": 13000,
+      "price": 10360,
+      "status": "판매 가능",
+      "image": null
+    },
+    {
+      "name": "아잉 손소독제",
+      "source": "더매니아 공급제품리스트_1201.xlsx",
+      "sheet": "Sheet1",
+      "category": "더매니아 직영",
+      "description": 7900,
+      "price": 6870,
+      "status": "판매 가능",
+      "image": null
+    }
+  ],
+  "metadata": {
+    "extractedAt": "2026-02-16T19:31:49.536Z",
+    "filesProcessed": 5
+  }
+}
