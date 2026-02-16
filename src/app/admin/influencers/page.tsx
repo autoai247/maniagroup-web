@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import AdminLayout from '@/components/AdminLayout';
 import { Plus, Search, Star, Instagram, Youtube, TrendingUp, ExternalLink, Mail, Phone, Edit, Trash2, Building2, UserCheck, MessageCircle } from 'lucide-react';
 import influencersData from '@/data/influencers.json';
@@ -105,12 +106,23 @@ export default function InfluencersPage() {
                 key={influencer.id}
                 className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 border border-white/10 hover:border-white/30 transition-all"
               >
-                {/* Header */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-500 rounded-full flex items-center justify-center text-2xl font-bold">
-                    {influencer.name.charAt(0)}
-                  </div>
-                  <div className="flex items-center gap-1 bg-yellow-500/20 px-2 py-1 rounded-lg">
+                {/* Header with Image */}
+                <div className="relative w-full h-48 mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-purple-500/20 to-pink-500/20">
+                  {influencer.image ? (
+                    <Image
+                      src={influencer.image}
+                      alt={influencer.name}
+                      fill
+                      className="object-cover"
+                      unoptimized
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-6xl font-bold bg-gradient-to-br from-pink-500 to-purple-500">
+                      {influencer.name.charAt(0)}
+                    </div>
+                  )}
+                  {/* Rating Badge */}
+                  <div className="absolute top-3 right-3 flex items-center gap-1 bg-black/70 backdrop-blur-sm px-3 py-1.5 rounded-lg">
                     <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
                     <span className="text-yellow-400 font-semibold text-sm">{influencer.rating}</span>
                   </div>

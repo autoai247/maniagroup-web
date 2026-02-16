@@ -18,8 +18,14 @@
       "status": "active",
       "projects": 12,
       "rating": 4.9,
-      "specialty": ["피트니스", "헬스케어", "운동복"],
-      "notes": "피트니스 전문 인플루언서, 협찬 및 공구 진행 가능"
+      "specialty": [
+        "피트니스",
+        "헬스케어",
+        "운동복"
+      ],
+      "notes": "피트니스 전문 인플루언서, 협찬 및 공구 진행 가능",
+      "image": "https://via.placeholder.com/400x400/FF6B6B/ffffff?text=문핏",
+      "thumbnail": "https://via.placeholder.com/200x200/FF6B6B/ffffff?text=문핏"
     },
     {
       "id": 2,
@@ -39,8 +45,14 @@
       "status": "active",
       "projects": 8,
       "rating": 4.7,
-      "specialty": ["패션", "뷰티", "라이프스타일"],
-      "notes": "패션/뷰티 콘텐츠 전문"
+      "specialty": [
+        "패션",
+        "뷰티",
+        "라이프스타일"
+      ],
+      "notes": "패션/뷰티 콘텐츠 전문",
+      "image": "https://via.placeholder.com/400x400/A8E6CF/ffffff?text=규리",
+      "thumbnail": "https://via.placeholder.com/200x200/A8E6CF/ffffff?text=규리"
     },
     {
       "id": 3,
@@ -60,8 +72,14 @@
       "status": "active",
       "projects": 5,
       "rating": 4.8,
-      "specialty": ["예능", "웹드라마", "PPL"],
-      "notes": "유튜브 웹예능 크리에이터, MCN을 통한 협업 필요"
+      "specialty": [
+        "예능",
+        "웹드라마",
+        "PPL"
+      ],
+      "notes": "유튜브 웹예능 크리에이터, MCN을 통한 협업 필요",
+      "image": "https://via.placeholder.com/400x400/FFD93D/ffffff?text=유승옥",
+      "thumbnail": "https://via.placeholder.com/200x200/FFD93D/ffffff?text=유승옥"
     }
   ],
   "platforms": [
