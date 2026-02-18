@@ -284,20 +284,21 @@ export default function ProductsPage() {
                   <tr key={product.id}
                     className="border-b border-white/5 hover:bg-white/5 transition-colors group">
                     <td className="px-4 py-3 text-gray-600 text-xs">{i + 1}</td>
-                    <td className="px-4 py-3">
+                    <td className="px-4 py-2">
                       <div className="flex items-center gap-3">
-                        <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-white/5 flex-shrink-0">
+                        <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-white/5 flex-shrink-0 border border-white/10">
                           {product.image ? (
                             <Image src={product.image} alt={product.name} fill className="object-cover" unoptimized />
                           ) : (
-                            <div className="w-full h-full flex items-center justify-center">
-                              <Package className="w-5 h-5 text-gray-600" />
+                            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-500/20 to-purple-500/20">
+                              <Package className="w-7 h-7 text-gray-500" />
                             </div>
                           )}
                         </div>
                         <div>
-                          <p className="font-medium text-white leading-tight">{product.name}</p>
-                          <p className="text-xs text-gray-500">{product.brand}</p>
+                          <p className="font-semibold text-white leading-tight">{product.name}</p>
+                          <p className="text-xs text-blue-400 mt-0.5">{product.brand}</p>
+                          <p className="text-xs text-gray-600 mt-0.5">{product.description}</p>
                         </div>
                       </div>
                     </td>

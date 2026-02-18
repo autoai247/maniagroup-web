@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import AdminLayout from '@/components/AdminLayout';
-import { Plus, Search, Star, Instagram, Youtube, TrendingUp, ExternalLink, Mail, Phone, Edit, Trash2, Building2, UserCheck, MessageCircle } from 'lucide-react';
+import { Plus, Search, Star, Instagram, Youtube, TrendingUp, ExternalLink, Edit, Trash2, Building2, UserCheck, MessageCircle, DollarSign, BarChart3 } from 'lucide-react';
 import influencersData from '@/data/influencers.json';
 
 export default function InfluencersPage() {
@@ -75,25 +75,33 @@ export default function InfluencersPage() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div className="bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10">
-            <p className="text-sm text-gray-400 mb-1">총 인플루언서</p>
-            <p className="text-2xl font-bold">{influencers.length}</p>
+            <p className="text-xs text-gray-400 mb-1">총 인플루언서</p>
+            <p className="text-2xl font-bold">{influencers.length}명</p>
+            <p className="text-xs text-gray-500 mt-1">활성 {influencers.filter(i => i.status === 'active').length}명</p>
           </div>
-          <div className="bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10">
-            <p className="text-sm text-gray-400 mb-1">진행 프로젝트</p>
-            <p className="text-2xl font-bold text-blue-400">{influencers.reduce((sum, i) => sum + i.projects, 0)}</p>
-          </div>
-          <div className="bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10">
-            <p className="text-sm text-gray-400 mb-1">평균 평점</p>
-            <p className="text-2xl font-bold flex items-center gap-1">
-              {(influencers.reduce((sum, i) => sum + i.rating, 0) / influencers.length).toFixed(1)}
-              <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+          <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4">
+            <p className="text-xs text-gray-400 mb-1">총 수익 발생액</p>
+            <p className="text-2xl font-bold text-blue-400">
+              ₩{Math.round(influencers.reduce((sum, i) => sum + (i.totalRevenue || 0), 0) / 10000)}만
             </p>
+            <p className="text-xs text-gray-500 mt-1">누적 프로젝트 기준</p>
           </div>
-          <div className="bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10">
-            <p className="text-sm text-gray-400 mb-1">이번 달 신규</p>
-            <p className="text-2xl font-bold text-green-400">+0</p>
+          <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
+            <p className="text-xs text-gray-400 mb-1">총 수수료 지급액</p>
+            <p className="text-2xl font-bold text-green-400">
+              ₩{Math.round(influencers.reduce((sum, i) => sum + (i.totalCommission || 0), 0) / 10000)}만
+            </p>
+            <p className="text-xs text-gray-500 mt-1">정산 완료 기준</p>
+          </div>
+          <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-4">
+            <p className="text-xs text-gray-400 mb-1">평균 평점</p>
+            <p className="text-2xl font-bold text-yellow-400 flex items-center gap-1">
+              {(influencers.reduce((sum, i) => sum + i.rating, 0) / influencers.length).toFixed(1)}
+              <Star className="w-4 h-4 fill-yellow-400" />
+            </p>
+            <p className="text-xs text-gray-500 mt-1">총 {influencers.reduce((sum, i) => sum + (i.totalProjects || 0), 0)}건 완료</p>
           </div>
         </div>
 
@@ -184,11 +192,51 @@ export default function InfluencersPage() {
                   </div>
                 </div>
 
-                {/* Stats */}
+                {/* 수익 정보 */}
+                <div className="mb-4 p-3 bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl">
+                  <p className="text-xs text-gray-400 mb-2 flex items-center gap-1">
+                    <DollarSign className="w-3.5 h-3.5 text-green-400" /> 수익 현황
+                  </p>
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div>
+                      <p className="text-gray-500">총 발생 수익</p>
+                      <p className="font-bold text-blue-400 text-sm">₩{((influencer.totalRevenue || 0) / 10000).toFixed(0)}만</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-500">총 수수료</p>
+                      <p className="font-bold text-yellow-400 text-sm">₩{((influencer.totalCommission || 0) / 10000).toFixed(0)}만</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-500">포스팅 단가</p>
+                      <p className="font-bold text-white">₩{(influencer.adFeePerPost || 0).toLocaleString()}</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-500">공구 수수료율</p>
+                      <p className="font-bold text-green-400">{influencer.groupBuyRate}%</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-500">최소 보장액</p>
+                      <p className="font-bold text-purple-400">₩{(influencer.minimumGuarantee || 0).toLocaleString()}</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-500">정산 방식</p>
+                      <p className="font-bold text-white">{influencer.settlementCycle}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 프로젝트 통계 */}
                 <div className="flex items-center justify-between mb-4 p-3 bg-white/5 rounded-xl">
-                  <div>
-                    <p className="text-xs text-gray-400 mb-1">진행 프로젝트</p>
-                    <p className="font-semibold text-blue-400">{influencer.projects}개</p>
+                  <div className="flex items-center gap-2">
+                    <BarChart3 className="w-4 h-4 text-blue-400" />
+                    <div>
+                      <p className="text-xs text-gray-400">완료 프로젝트</p>
+                      <p className="font-semibold text-blue-400">{influencer.totalProjects || influencer.projects}건</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-xs text-gray-400 mb-1">담당 매니저</p>
+                    <p className="text-xs font-medium text-white">{influencer.manager || '-'}</p>
                   </div>
                   <div className="text-right">
                     <p className="text-xs text-gray-400 mb-1">상태</p>
