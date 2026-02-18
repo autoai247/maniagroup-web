@@ -6,7 +6,7 @@ import {
   Plus, Search, Filter, Tag, Package, Edit, Trash2, Eye,
   CheckCircle, FileSpreadsheet, FileText, LayoutGrid, List,
   TrendingUp, ArrowUpDown, ChevronDown, ChevronUp, Upload,
-  X, AlertCircle
+  X, AlertCircle, Phone, Mail, Clock, ShoppingCart
 } from 'lucide-react';
 import Image from 'next/image';
 import realPartnersData from '@/data/real-partners.json';
@@ -46,8 +46,15 @@ export default function ProductsPage() {
   const [sortDir, setSortDir] = useState<SortDir>('asc');
   const [showModal, setShowModal] = useState(false);
   const [showImportModal, setShowImportModal] = useState(false);
+  const [showDetailModal, setShowDetailModal] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<typeof realPartnersData.products[0] | null>(null);
   const [newProduct, setNewProduct] = useState<NewProduct>(EMPTY_PRODUCT);
   const [importText, setImportText] = useState('');
+
+  const openDetail = (product: typeof realPartnersData.products[0]) => {
+    setSelectedProduct(product);
+    setShowDetailModal(true);
+  };
 
   const products = realPartnersData.products;
   const categories = Array.from(new Set(products.map(p => p.category)));
@@ -282,7 +289,8 @@ export default function ProductsPage() {
               <tbody>
                 {filteredProducts.map((product, i) => (
                   <tr key={product.id}
-                    className="border-b border-white/5 hover:bg-white/5 transition-colors group">
+                    onClick={() => openDetail(product)}
+                    className="border-b border-white/5 hover:bg-white/5 transition-colors group cursor-pointer">
                     <td className="px-4 py-3 text-gray-600 text-xs">{i + 1}</td>
                     <td className="px-4 py-2">
                       <div className="flex items-center gap-3">
@@ -335,9 +343,9 @@ export default function ProductsPage() {
                     <td className="px-4 py-3 text-center">
                       <span className="text-xs px-2 py-0.5 bg-blue-500/20 text-blue-400 rounded-full">{product.status}</span>
                     </td>
-                    <td className="px-4 py-3">
+                    <td className="px-4 py-3" onClick={e => e.stopPropagation()}>
                       <div className="flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button onClick={() => alert(`${product.name} 상세`)}
+                        <button onClick={() => openDetail(product)}
                           className="p-1.5 hover:bg-blue-500/20 text-blue-400 rounded-lg transition-colors">
                           <Eye className="w-3.5 h-3.5" />
                         </button>
@@ -368,8 +376,8 @@ export default function ProductsPage() {
         {viewMode === 'grid' && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {filteredProducts.map(product => (
-              <div key={product.id}
-                className="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 hover:border-white/30 transition-all overflow-hidden group">
+              <div key={product.id} onClick={() => openDetail(product)}
+                className="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 hover:border-white/30 transition-all overflow-hidden group cursor-pointer">
                 {/* Image */}
                 <div className="relative h-40 bg-white/5">
                   {product.image ? (
@@ -412,7 +420,7 @@ export default function ProductsPage() {
                   </div>
 
                   <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <button onClick={() => alert(`${product.name} 상세`)}
+                    <button onClick={() => openDetail(product)}
                       className="flex-1 flex items-center justify-center gap-1 py-1.5 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 rounded-lg text-xs transition-colors">
                       <Eye className="w-3 h-3" /> 상세
                     </button>
@@ -677,6 +685,155 @@ export default function ProductsPage() {
         )}
 
       </div>
+
+      {/* ───── 제품 상세 모달 ───── */}
+      {showDetailModal && selectedProduct && (
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-gray-900 border border-white/20 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            {/* 상단 이미지 */}
+            <div className="relative h-56">
+              {selectedProduct.image ? (
+                <Image src={selectedProduct.image} alt={selectedProduct.name} fill className="object-cover rounded-t-2xl" unoptimized />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-t-2xl flex items-center justify-center">
+                  <Package className="w-16 h-16 text-white/20" />
+                </div>
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/30 to-transparent rounded-t-2xl" />
+              <button onClick={() => setShowDetailModal(false)}
+                className="absolute top-4 right-4 p-2 bg-black/50 hover:bg-black/70 rounded-xl transition-colors">
+                <X className="w-5 h-5" />
+              </button>
+              {selectedProduct.canGroup && (
+                <div className="absolute top-4 left-4 flex items-center gap-1 bg-green-500/90 px-3 py-1 rounded-full">
+                  <CheckCircle className="w-3.5 h-3.5 text-white" />
+                  <span className="text-white text-xs font-semibold">공구 가능</span>
+                </div>
+              )}
+              <div className="absolute bottom-4 left-5">
+                <h2 className="text-xl font-bold leading-tight">{selectedProduct.name}</h2>
+                <p className="text-blue-400 text-sm font-semibold">{selectedProduct.brand}</p>
+                <div className="flex items-center gap-2 mt-1">
+                  <span className="text-xs bg-white/10 px-2 py-0.5 rounded-full">{selectedProduct.category}</span>
+                  <span className="text-xs bg-blue-500/30 text-blue-300 px-2 py-0.5 rounded-full">{selectedProduct.status}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-5 space-y-5">
+              {/* 설명 */}
+              {selectedProduct.description && (
+                <p className="text-sm text-gray-300 bg-white/5 rounded-xl p-3">{selectedProduct.description}</p>
+              )}
+
+              {/* 가격 구조 */}
+              <div>
+                <h3 className="text-sm font-bold text-gray-400 mb-3 flex items-center gap-2">
+                  <ShoppingCart className="w-4 h-4 text-blue-400" /> 가격 구조
+                </h3>
+                <div className="grid grid-cols-3 gap-3">
+                  <div className="bg-white/5 rounded-xl p-3 text-center">
+                    <p className="text-xs text-gray-500 mb-1">공급가</p>
+                    <p className="text-lg font-bold">₩{(selectedProduct.supplyPrice || 0).toLocaleString()}</p>
+                  </div>
+                  <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-3 text-center">
+                    <p className="text-xs text-gray-500 mb-1">판매가</p>
+                    <p className="text-lg font-bold text-blue-400">₩{(selectedProduct.retailPrice || 0).toLocaleString()}</p>
+                  </div>
+                  <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-3 text-center">
+                    <p className="text-xs text-gray-500 mb-1">공구가</p>
+                    <p className="text-lg font-bold text-green-400">₩{(selectedProduct.groupBuyPrice || 0).toLocaleString()}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 수익 구조 */}
+              <div>
+                <h3 className="text-sm font-bold text-gray-400 mb-3 flex items-center gap-2">
+                  <TrendingUp className="w-4 h-4 text-green-400" /> 수익 구조
+                </h3>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-3">
+                    <p className="text-xs text-gray-400 mb-1">마진</p>
+                    <p className="text-xl font-bold text-green-400">₩{(selectedProduct.margin || 0).toLocaleString()}</p>
+                    <p className="text-xs text-gray-500 mt-1">마진율 {selectedProduct.marginRate}%</p>
+                  </div>
+                  <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-3">
+                    <p className="text-xs text-gray-400 mb-1">인플루언서 수수료</p>
+                    <p className="text-xl font-bold text-yellow-400">₩{(selectedProduct.influencerAmount || 0).toLocaleString()}</p>
+                    <p className="text-xs text-gray-500 mt-1">{selectedProduct.influencerFee}% 적용</p>
+                  </div>
+                  <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-3">
+                    <p className="text-xs text-gray-400 mb-1">회사 수익 (건당)</p>
+                    <p className="text-xl font-bold text-blue-400">₩{(selectedProduct.companyProfit || 0).toLocaleString()}</p>
+                    <p className="text-xs text-gray-500 mt-1">수익률 {selectedProduct.companyProfitRate}%</p>
+                  </div>
+                  <div className="bg-purple-500/10 border border-purple-500/20 rounded-xl p-3">
+                    <p className="text-xs text-gray-400 mb-1">재고 수익 잠재액</p>
+                    <p className="text-xl font-bold text-purple-400">
+                      ₩{((selectedProduct.companyProfit || 0) * (selectedProduct.stock || 0)).toLocaleString()}
+                    </p>
+                    <p className="text-xs text-gray-500 mt-1">재고 {selectedProduct.stock}개 기준</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 재고 & 주문 */}
+              <div>
+                <h3 className="text-sm font-bold text-gray-400 mb-3 flex items-center gap-2">
+                  <Package className="w-4 h-4" /> 재고 & 주문 정보
+                </h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  {[
+                    { label: '현재 재고', value: `${selectedProduct.stock}개` },
+                    { label: '최소 주문량', value: `${selectedProduct.moq}개` },
+                    { label: '공구 최소수량', value: `${selectedProduct.groupMinQty}개` },
+                    { label: '리드타임', value: selectedProduct.leadTime },
+                  ].map((item, i) => (
+                    <div key={i} className="bg-white/5 rounded-xl p-3 text-center">
+                      <p className="text-xs text-gray-500 mb-1">{item.label}</p>
+                      <p className="font-bold">{item.value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 공급사 정보 */}
+              <div>
+                <h3 className="text-sm font-bold text-gray-400 mb-3 flex items-center gap-2">
+                  <Tag className="w-4 h-4" /> 공급사 정보
+                </h3>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center justify-between py-2 border-b border-white/5">
+                    <span className="text-gray-400">공급사</span>
+                    <span className="font-medium">{selectedProduct.supplier}</span>
+                  </div>
+                  <div className="flex items-center justify-between py-2 border-b border-white/5">
+                    <span className="text-gray-400 flex items-center gap-2"><Phone className="w-3.5 h-3.5" /> 연락처</span>
+                    <span className="font-medium">{selectedProduct.supplierContact}</span>
+                  </div>
+                  <div className="flex items-center justify-between py-2">
+                    <span className="text-gray-400 flex items-center gap-2"><Mail className="w-3.5 h-3.5" /> 이메일</span>
+                    <span className="font-medium">{selectedProduct.supplierEmail}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 버튼 */}
+              <div className="flex gap-3 pt-1">
+                <button onClick={() => setShowDetailModal(false)}
+                  className="flex-1 py-3 bg-white/10 hover:bg-white/20 rounded-xl font-semibold text-sm transition-all">
+                  닫기
+                </button>
+                <button onClick={() => alert('수정 기능 연동 예정')}
+                  className="flex-1 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl font-semibold text-sm hover:scale-105 transition-all">
+                  정보 수정
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </AdminLayout>
   );
 }
