@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import AdminLayout from '@/components/AdminLayout';
 import {
@@ -24,13 +25,12 @@ const parseFollowers = (f: string) => {
 const parseEngagement = (e: string) => parseFloat(e?.replace('%', '') || '0');
 
 export default function InfluencersPage() {
+  const router = useRouter();
   const [viewMode, setViewMode] = useState<ViewMode>('list');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedPlatform, setSelectedPlatform] = useState('all');
   const [sortKey, setSortKey] = useState<SortKey>('totalRevenue');
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc');
-  const [selectedInfluencer, setSelectedInfluencer] = useState<typeof influencers[0] | null>(null);
-  const [showModal, setShowModal] = useState(false);
 
   const influencers = influencersData.influencers;
 
@@ -64,8 +64,7 @@ export default function InfluencersPage() {
   };
 
   const openDetail = (inf: typeof influencers[0]) => {
-    setSelectedInfluencer(inf);
-    setShowModal(true);
+    router.push(`/admin/influencers/${inf.id}`);
   };
 
   const getPlatformIcon = (p: string) => {
@@ -400,168 +399,6 @@ export default function InfluencersPage() {
         </div>
       </div>
 
-      {/* ───── 상세 모달 ───── */}
-      {showModal && selectedInfluencer && (() => {
-        const inf = selectedInfluencer;
-        const PIcon = getPlatformIcon(inf.platform);
-        return (
-          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-            <div className="bg-gray-900 border border-white/20 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-              {/* 상단 이미지 + 기본 정보 */}
-              <div className="relative h-52">
-                {inf.image ? (
-                  <Image src={inf.image} alt={inf.name} fill className="object-cover rounded-t-2xl" unoptimized />
-                ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-pink-500 to-purple-500 rounded-t-2xl flex items-center justify-center text-6xl font-bold text-white/30">
-                    {inf.name[0]}
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent rounded-t-2xl" />
-                <button onClick={() => setShowModal(false)}
-                  className="absolute top-4 right-4 p-2 bg-black/50 hover:bg-black/70 rounded-xl transition-colors">
-                  <X className="w-5 h-5" />
-                </button>
-                <div className="absolute bottom-4 left-6">
-                  <h2 className="text-2xl font-bold">{inf.name}</h2>
-                  {inf.realName && <p className="text-gray-300 text-sm">실명: {inf.realName}</p>}
-                  <div className="flex items-center gap-2 mt-1">
-                    <span className="flex items-center gap-1 text-xs bg-white/10 px-2 py-1 rounded-full">
-                      <PIcon className="w-3 h-3" />{inf.platform}
-                    </span>
-                    <span className="text-xs bg-blue-500/30 text-blue-300 px-2 py-1 rounded-full">{inf.category}</span>
-                    <span className={`text-xs px-2 py-1 rounded-full ${inf.status === 'active' ? 'bg-green-500/30 text-green-300' : 'bg-gray-500/30 text-gray-400'}`}>
-                      {inf.status === 'active' ? '활성' : '비활성'}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6 space-y-5">
-                {/* 채널 지표 */}
-                <div>
-                  <h3 className="text-sm font-bold text-gray-400 mb-3 flex items-center gap-2">
-                    <BarChart2 className="w-4 h-4" /> 채널 지표
-                  </h3>
-                  <div className="grid grid-cols-3 gap-3">
-                    <div className="bg-white/5 rounded-xl p-3 text-center">
-                      <p className="text-xs text-gray-500 mb-1">팔로워</p>
-                      <p className="text-lg font-bold">{inf.followers}</p>
-                    </div>
-                    <div className="bg-white/5 rounded-xl p-3 text-center">
-                      <p className="text-xs text-gray-500 mb-1">참여율</p>
-                      <p className="text-lg font-bold text-green-400">{inf.engagement}</p>
-                    </div>
-                    <div className="bg-white/5 rounded-xl p-3 text-center">
-                      <p className="text-xs text-gray-500 mb-1">평점</p>
-                      <p className="text-lg font-bold text-yellow-400 flex items-center justify-center gap-1">
-                        {inf.rating} <Star className="w-4 h-4 fill-yellow-400" />
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 수익 & 단가 */}
-                <div>
-                  <h3 className="text-sm font-bold text-gray-400 mb-3 flex items-center gap-2">
-                    <DollarSign className="w-4 h-4 text-green-400" /> 수익 & 단가 정보
-                  </h3>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-3">
-                      <p className="text-xs text-gray-400 mb-1">총 발생 수익</p>
-                      <p className="text-xl font-bold text-blue-400">₩{(inf.totalRevenue || 0).toLocaleString()}</p>
-                    </div>
-                    <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-3">
-                      <p className="text-xs text-gray-400 mb-1">총 수수료 지급</p>
-                      <p className="text-xl font-bold text-yellow-400">₩{(inf.totalCommission || 0).toLocaleString()}</p>
-                    </div>
-                    <div className="bg-white/5 rounded-xl p-3">
-                      <p className="text-xs text-gray-400 mb-1">포스팅 단가</p>
-                      <p className="text-lg font-bold">₩{(inf.adFeePerPost || 0).toLocaleString()}</p>
-                    </div>
-                    <div className="bg-white/5 rounded-xl p-3">
-                      <p className="text-xs text-gray-400 mb-1">공구 수수료율</p>
-                      <p className="text-lg font-bold text-green-400">{inf.groupBuyRate}%</p>
-                    </div>
-                    <div className="bg-white/5 rounded-xl p-3">
-                      <p className="text-xs text-gray-400 mb-1">최소 보장액</p>
-                      <p className="text-lg font-bold text-purple-400">₩{(inf.minimumGuarantee || 0).toLocaleString()}</p>
-                    </div>
-                    <div className="bg-white/5 rounded-xl p-3">
-                      <p className="text-xs text-gray-400 mb-1">정산 방식</p>
-                      <p className="text-lg font-bold">{inf.settlementCycle}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 계약 & 연락 */}
-                <div>
-                  <h3 className="text-sm font-bold text-gray-400 mb-3 flex items-center gap-2">
-                    <CreditCard className="w-4 h-4" /> 계약 & 연락처
-                  </h3>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex items-center justify-between py-2 border-b border-white/5">
-                      <span className="text-gray-400 flex items-center gap-2"><Building2 className="w-4 h-4" /> 소속</span>
-                      <span className="font-medium">{inf.agency}</span>
-                    </div>
-                    <div className="flex items-center justify-between py-2 border-b border-white/5">
-                      <span className="text-gray-400 flex items-center gap-2"><UserCheck className="w-4 h-4" /> 계약 형태</span>
-                      <span className={`px-2 py-0.5 rounded text-xs font-semibold ${inf.isExclusive ? 'bg-blue-500/20 text-blue-400' : 'bg-gray-500/20 text-gray-400'}`}>
-                        {inf.isExclusive ? '전속' : '비전속'}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between py-2 border-b border-white/5">
-                      <span className="text-gray-400 flex items-center gap-2"><MessageCircle className="w-4 h-4" /> 컨택 방법</span>
-                      <span className="font-medium">{inf.contactMethod}</span>
-                    </div>
-                    <div className="flex items-center justify-between py-2 border-b border-white/5">
-                      <span className="text-gray-400 flex items-center gap-2"><Phone className="w-4 h-4" /> 연락처</span>
-                      <span className="font-medium">{inf.phone}</span>
-                    </div>
-                    <div className="flex items-center justify-between py-2 border-b border-white/5">
-                      <span className="text-gray-400">담당 매니저</span>
-                      <span className="font-medium">{inf.manager || '-'}</span>
-                    </div>
-                    <div className="flex items-center justify-between py-2 border-b border-white/5">
-                      <span className="text-gray-400">완료 프로젝트</span>
-                      <span className="font-bold text-blue-400">{inf.totalProjects || inf.projects}건</span>
-                    </div>
-                    <div className="flex items-center justify-between py-2">
-                      <span className="text-gray-400">계약 기간</span>
-                      <span className="font-medium text-xs">{inf.contractStart} ~ {inf.contractEnd}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 전문 분야 */}
-                <div>
-                  <p className="text-xs text-gray-400 mb-2">전문 분야</p>
-                  <div className="flex flex-wrap gap-2">
-                    {(inf.specialty || []).map((s, i) => (
-                      <span key={i} className="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">{s}</span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* 메모 */}
-                {inf.notes && (
-                  <div className="bg-white/5 rounded-xl p-3">
-                    <p className="text-xs text-gray-400 mb-1">메모</p>
-                    <p className="text-sm text-gray-300">{inf.notes}</p>
-                  </div>
-                )}
-
-                {/* SNS 버튼 */}
-                {inf.instagram && (
-                  <a href={inf.instagram} target="_blank" rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl font-semibold hover:scale-105 transition-all">
-                    <Instagram className="w-5 h-5" /> Instagram 바로가기
-                  </a>
-                )}
-              </div>
-            </div>
-          </div>
-        );
-      })()}
     </AdminLayout>
   );
 }
