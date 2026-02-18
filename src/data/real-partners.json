@@ -114,6 +114,20 @@
       "status": "판매중",
       "canGroup": true,
       "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=800&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&h=800&fit=crop&q=80"
+      ],
+      "videos": [],
+      "website": "",
+      "sns": {
+        "instagram": "",
+        "naverBlog": "",
+        "kakao": "",
+        "youtube": ""
+      },
+      "hashtags": ["모공케어", "스킨케어", "뷰티", "카오리온", "공동구매"],
       "description": "프리미엄 모공 케어 팩으로 깨끗한 피부 관리",
       "supplyPrice": 8000,
       "retailPrice": 20000,
@@ -141,6 +155,20 @@
       "status": "판매중",
       "canGroup": true,
       "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=800&h=800&fit=crop&q=80"
+      ],
+      "videos": [],
+      "website": "",
+      "sns": {
+        "instagram": "",
+        "naverBlog": "",
+        "kakao": "",
+        "youtube": ""
+      },
+      "hashtags": ["시트마스크", "리프팅", "스킨케어", "카오리온"],
       "description": "탄력과 리프팅 효과를 동시에",
       "supplyPrice": 8700,
       "retailPrice": 22620,
@@ -168,6 +196,20 @@
       "status": "판매중",
       "canGroup": true,
       "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=800&h=800&fit=crop&q=80"
+      ],
+      "videos": [],
+      "website": "",
+      "sns": {
+        "instagram": "",
+        "naverBlog": "",
+        "kakao": "",
+        "youtube": ""
+      },
+      "hashtags": ["나이트마스크", "수분", "겔마스크", "카오리온"],
       "description": "수분 가득한 나이트 마스크 50g",
       "supplyPrice": 9400,
       "retailPrice": 25380,
@@ -195,6 +237,20 @@
       "status": "판매중",
       "canGroup": true,
       "image": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=400&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=800&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1583947581924-860bda6a26df?w=800&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&h=800&fit=crop&q=80"
+      ],
+      "videos": [],
+      "website": "",
+      "sns": {
+        "instagram": "",
+        "naverBlog": "",
+        "kakao": "",
+        "youtube": ""
+      },
+      "hashtags": ["폼클렌저", "블랙파우더", "클렌징", "카오리온"],
       "description": "블랙 파우더로 깊은 클렌징",
       "supplyPrice": 10100,
       "retailPrice": 28280,
@@ -222,6 +278,20 @@
       "status": "판매중",
       "canGroup": true,
       "image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=400&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=800&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&h=800&fit=crop&q=80"
+      ],
+      "videos": [],
+      "website": "",
+      "sns": {
+        "instagram": "",
+        "naverBlog": "",
+        "kakao": "",
+        "youtube": ""
+      },
+      "hashtags": ["헴프", "바디케어", "헤어케어", "카오리온"],
       "description": "바디와 헤어를 동시에 케어",
       "supplyPrice": 10800,
       "retailPrice": 31320,
@@ -249,6 +319,19 @@
       "status": "판매중",
       "canGroup": true,
       "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1583947581924-860bda6a26df?w=800&h=800&fit=crop&q=80"
+      ],
+      "videos": [],
+      "website": "",
+      "sns": {
+        "instagram": "",
+        "naverBlog": "",
+        "kakao": "",
+        "youtube": ""
+      },
+      "hashtags": ["살균", "스프레이", "소독", "브이쉴드"],
       "description": "강력한 살균 효과 300ml",
       "supplyPrice": 5500,
       "retailPrice": 13750,
@@ -276,6 +359,19 @@
       "status": "판매중",
       "canGroup": true,
       "image": "https://images.unsplash.com/photo-1583947581924-860bda6a26df?w=400&h=400&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1583947581924-860bda6a26df?w=800&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&h=800&fit=crop&q=80"
+      ],
+      "videos": [],
+      "website": "",
+      "sns": {
+        "instagram": "",
+        "naverBlog": "",
+        "kakao": "",
+        "youtube": ""
+      },
+      "hashtags": ["손세정제", "핸드겔", "위생", "클린온"],
       "description": "휴대용 손 세정제 30ml",
       "supplyPrice": 6000,
       "retailPrice": 15600,
@@ -303,6 +399,19 @@
       "status": "판매중",
       "canGroup": true,
       "image": "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&h=400&fit=crop&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&h=800&fit=crop&q=80",
+        "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&h=800&fit=crop&q=80"
+      ],
+      "videos": [],
+      "website": "",
+      "sns": {
+        "instagram": "",
+        "naverBlog": "",
+        "kakao": "",
+        "youtube": ""
+      },
+      "hashtags": ["반려동물", "유산균", "강아지", "고양이", "뽀로로펫"],
       "description": "강아지와 고양이를 위한 유산균",
       "supplyPrice": 17000,
       "retailPrice": 45900,
