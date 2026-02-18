@@ -8,13 +8,51 @@ import {
   ArrowLeft, Edit2, Save, X, Plus, ExternalLink,
   Instagram, Youtube, Globe, Phone, Mail,
   Star, Users, TrendingUp, DollarSign,
-  CreditCard, FileText, UserCheck, Building2,
-  CheckCircle, Hash, MessageCircle, BarChart2,
-  Calendar, RefreshCw, Tag, Briefcase
+  CreditCard, FileText, UserCheck,
+  CheckCircle, Hash, MessageCircle,
+  Calendar, RefreshCw, Briefcase
 } from 'lucide-react';
 import influencersData from '@/data/influencers.json';
 
-type Influencer = (typeof influencersData.influencers)[0];
+interface Influencer {
+  id: number;
+  name: string;
+  realName: string;
+  platform: string;
+  category: string;
+  followers: string;
+  engagement: string;
+  instagram?: string;
+  youtube?: string;
+  agency: string;
+  isExclusive: boolean;
+  contactMethod: string;
+  contactPerson: string;
+  phone: string;
+  email: string;
+  status: string;
+  projects: number;
+  rating: number;
+  specialty: string[];
+  notes: string;
+  image: string;
+  thumbnail: string;
+  adFeePerPost: number;
+  commissionRate: number;
+  groupBuyRate: number;
+  minimumGuarantee: number;
+  settlementCycle: string;
+  accountBank: string;
+  accountNumber: string;
+  accountHolder: string;
+  contractStart: string;
+  contractEnd: string;
+  autoRenewal: boolean;
+  manager: string;
+  totalProjects: number;
+  totalRevenue: number;
+  totalCommission: number;
+}
 
 export default function InfluencerDetailPage() {
   const params = useParams();
@@ -438,15 +476,15 @@ export default function InfluencerDetailPage() {
                   {editMode ? (
                     <input
                       type="text"
-                      value={(draft as typeof draft & { instagram?: string }).instagram || ''}
-                      onChange={(e) => setDraft({ ...draft, instagram: e.target.value } as typeof draft)}
+                      value={draft.instagram || ''}
+                      onChange={(e) => setDraft({ ...draft, instagram: e.target.value })}
                       placeholder="Instagram URL"
                       className="flex-1 bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
                     />
                   ) : (
-                    (d as typeof d & { instagram?: string }).instagram ? (
+                    d.instagram ? (
                       <a
-                        href={(d as typeof d & { instagram?: string }).instagram}
+                        href={d.instagram}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-sm text-blue-400 hover:text-blue-300 flex items-center gap-1"
@@ -461,15 +499,15 @@ export default function InfluencerDetailPage() {
                   {editMode ? (
                     <input
                       type="text"
-                      value={(draft as typeof draft & { youtube?: string }).youtube || ''}
-                      onChange={(e) => setDraft({ ...draft, youtube: e.target.value } as typeof draft)}
+                      value={draft.youtube || ''}
+                      onChange={(e) => setDraft({ ...draft, youtube: e.target.value })}
                       placeholder="YouTube 채널 URL"
                       className="flex-1 bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
                     />
                   ) : (
-                    (d as typeof d & { youtube?: string }).youtube ? (
+                    d.youtube ? (
                       <a
-                        href={(d as typeof d & { youtube?: string }).youtube}
+                        href={d.youtube}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-sm text-blue-400 hover:text-blue-300 flex items-center gap-1"
