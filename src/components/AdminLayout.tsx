@@ -15,7 +15,8 @@ import {
   X,
   Home,
   Star,
-  Package
+  Package,
+  Download
 } from 'lucide-react';
 
 interface AdminLayoutProps {
@@ -56,6 +57,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
     { icon: Star, label: '인플루언서', href: '/admin/influencers' },
     { icon: Package, label: '제품 관리', href: '/admin/products' },
     { icon: FileText, label: '문서 관리', href: '/admin/documents' },
+    { icon: Download, label: '리포트/내보내기', href: '/admin/reports' },
     { icon: Settings, label: '설정', href: '/admin/settings' },
   ];
 
